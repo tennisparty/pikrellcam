@@ -52,7 +52,6 @@ echo "port 80, you should enter an alternate port for PiKrellCam."
 echo "Otherwise you can use the default port 80 or an alternate as you wish."
 echo "The port number will be set in: /etc/nginx.sites-available/pikrellcam."
 echo -n "Enter web server port: "
-read resp
 	PORT=80
 
 echo ""
@@ -60,7 +59,6 @@ echo "For auto starting at boot, a PiKrellCam start command must be in rc.local.
 echo "If you don't start at boot, PiKrellCam can always be started and stopped"
 echo "from the web page."
 echo -n "Do you want PiKrellCam to be auto started at boot? (yes/no): "
-read resp
 	AUTOSTART=yes
 
 HTPASSWD=www/.htpasswd
