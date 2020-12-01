@@ -53,12 +53,7 @@ echo "Otherwise you can use the default port 80 or an alternate as you wish."
 echo "The port number will be set in: /etc/nginx.sites-available/pikrellcam."
 echo -n "Enter web server port: "
 read resp
-if [ "$resp" == "" ]
-then
 	PORT=80
-else
-	PORT=$resp
-fi
 
 echo ""
 echo "For auto starting at boot, a PiKrellCam start command must be in rc.local."
@@ -66,43 +61,12 @@ echo "If you don't start at boot, PiKrellCam can always be started and stopped"
 echo "from the web page."
 echo -n "Do you want PiKrellCam to be auto started at boot? (yes/no): "
 read resp
-if [ "$resp" == "y" ] || [ "$resp" == "yes" ]
-then
 	AUTOSTART=yes
-else
-	AUTOSTART=no
-fi
-
 
 HTPASSWD=www/.htpasswd
 PASSWORD=""
 
 echo ""
-if [ -f $HTPASSWD ]
-then
-	echo "A web password is already set."
-	echo -n "Do you want to change the password (yes/no)? "
-	read resp
-	if [ "$resp" == "y" ] || [ "$resp" == "yes" ]
-	then
-		SET_PASSWORD=yes
-		rm -f $HTPASSWD
-	else
-		SET_PASSWORD=no
-	fi
-else
-	SET_PASSWORD=yes
-fi
-
-if [ "$SET_PASSWORD" == "yes" ]
-then
-	echo "Enter a password for a web page login for user: $USER"
-	echo "Enter a blank entry if you do not want the password login."
-	echo -n "Enter password: "
-	read PASSWORD
-fi
-
-
 
 
 echo ""
